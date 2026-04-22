@@ -9,7 +9,6 @@
 
 <style>
 html {scroll-behavior:smooth;}
-
 body{
     margin:0;
     font-family:'Inter',sans-serif;
@@ -18,7 +17,7 @@ body{
     overflow-x:hidden;
 }
 
-/* BACKGROUND GLOW */
+/* BG GLOW */
 body::before{
     content:"";
     position:fixed;
@@ -41,26 +40,19 @@ body::before{
     background:rgba(0,0,0,0.6);
     backdrop-filter:blur(15px);
 }
-
 .nav a{
     color:#aaa;
     margin-left:20px;
     text-decoration:none;
 }
-
 .nav a:hover{color:#38bdf8;}
 
 /* HERO */
-.hero{
-    text-align:center;
-    padding:120px 20px;
-}
-
+.hero{text-align:center;padding:120px 20px;}
 .hero h1{font-size:55px;}
-
 .hero p{color:#aaa;}
 
-/* BUTTON */
+/* BTN */
 .btn{
     display:inline-block;
     margin-top:20px;
@@ -71,7 +63,6 @@ body::before{
     text-decoration:none;
     transition:0.3s;
 }
-
 .btn:hover{
     transform:translateY(-3px);
     box-shadow:0 0 20px #38bdf8;
@@ -79,7 +70,6 @@ body::before{
 
 /* SECTION */
 .section{padding:80px 10%;}
-
 h2{font-size:30px;margin-bottom:20px;}
 
 /* GRID */
@@ -95,11 +85,10 @@ h2{font-size:30px;margin-bottom:20px;}
     padding:25px;
     border-radius:20px;
     backdrop-filter:blur(10px);
-    transition:0.4s;
     border:1px solid rgba(255,255,255,0.1);
+    transition:0.4s;
     cursor:pointer;
 }
-
 .card:hover{
     transform:translateY(-8px);
     box-shadow:0 0 25px rgba(56,189,248,0.4);
@@ -118,7 +107,7 @@ p{color:#aaa;}
     transform:translateY(0);
 }
 
-/* CURSOR */
+/* INSANE CURSOR */
 .cursor-dot{
     position:fixed;
     width:8px;
@@ -129,7 +118,6 @@ p{color:#aaa;}
     z-index:1000;
     transform:translate(-50%,-50%);
 }
-
 .cursor-glow{
     position:fixed;
     width:140px;
@@ -139,21 +127,15 @@ p{color:#aaa;}
     pointer-events:none;
     z-index:999;
     transform:translate(-50%,-50%);
-    transition:0.2s;
 }
 
 /* FOOTER */
-.footer{
-    text-align:center;
-    padding:40px;
-    color:#777;
-}
+.footer{text-align:center;padding:40px;color:#777;}
 </style>
 </head>
 
 <body>
 
-<!-- CURSOR -->
 <div class="cursor-dot"></div>
 <div class="cursor-glow"></div>
 
@@ -178,8 +160,8 @@ p{color:#aaa;}
 <div class="section" id="about">
     <h2 class="fade-up">About Me</h2>
     <p class="fade-up">
-        SEO Specialist & Social Media Manager with real company experience.
-        Skilled in keyword research, on-page SEO, and content strategy.
+        SEO Specialist & Social Media Manager with real experience in keyword research,
+        content strategy, and social media growth.
     </p>
 </div>
 
@@ -190,7 +172,7 @@ p{color:#aaa;}
     <div class="card fade-up" onclick="window.open('https://dudehubdigital.com/','_blank')">
         <h3>Dude Hub</h3>
         <p>Social Media Manager</p>
-        <p>Managed content strategy, engagement & SEO growth.</p>
+        <p>Managed content, engagement, and SEO growth strategies.</p>
     </div>
 </div>
 
@@ -199,27 +181,53 @@ p{color:#aaa;}
     <h2 class="fade-up">Projects</h2>
 
     <div class="grid">
+
         <div class="card fade-up" onclick="window.open('https://probgmitips.blogspot.com/2026/04/the-rise-of-esports-in-india-ewc.html','_blank')">
             <h3>The Rise of Esports in India</h3>
-            <p>Blog on esports growth & EWC impact.</p>
+            <p>SEO blog on esports growth & EWC.</p>
         </div>
 
         <div class="card fade-up">
-            <h3>Upcoming Projects</h3>
-            <p>More SEO & SMM work coming soon.</p>
+            <h3>SEO Audit Project</h3>
+            <p>Analyzed website SEO issues and improvements.</p>
         </div>
+
+        <div class="card fade-up">
+            <h3>Instagram Growth Strategy</h3>
+            <p>Content strategy to increase engagement.</p>
+        </div>
+
     </div>
 </div>
 
-<!-- SEO CASE STUDY -->
+<!-- CASE STUDIES -->
+<div class="section">
+    <h2 class="fade-up">Case Studies</h2>
+
+    <div class="grid">
+
+        <div class="card fade-up">
+            <h3>SEO Audit</h3>
+            <p><b>Findings:</b> Missing meta, slow speed</p>
+            <p><b>Solution:</b> SEO optimization & structure</p>
+        </div>
+
+        <div class="card fade-up">
+            <h3>Instagram Growth</h3>
+            <p><b>Strategy:</b> Hashtags + content</p>
+            <p><b>Result:</b> Improved engagement</p>
+        </div>
+
+    </div>
+</div>
+
+<!-- SEO CASE -->
 <div class="section">
     <h2 class="fade-up">SEO Case Study</h2>
 
     <div class="card fade-up">
-        <h3> The Rise of Esports Blog SEO Growth</h3>
-        <p><b>Objective:</b> Improve visibility using SEO</p>
-        <p><b>Strategy:</b> Keyword research, on-page SEO, internal linking</p>
-        <p><b>Result:</b> Better structure & search visibility</p>
+        <h3>The Rise of Esports in India Blog SEO</h3>
+        <p>Used keyword research, on-page SEO, and internal linking to improve visibility.</p>
     </div>
 </div>
 
@@ -242,43 +250,35 @@ p{color:#aaa;}
     <p class="fade-up">Location: Ghaziabad</p>
 </div>
 
-<div class="footer">
-© 2026 Avinash Patwal
-</div>
+<div class="footer">© 2026 Avinash Patwal</div>
 
 <script>
-// SCROLL ANIMATION
-const observer = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            entry.target.classList.add('show');
-        }
-    });
+// SCROLL
+const obs=new IntersectionObserver(e=>{
+    e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('show')});
 },{threshold:0.2});
-
-document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
 
 // CURSOR
 const dot=document.querySelector(".cursor-dot");
 const glow=document.querySelector(".cursor-glow");
 
-let mouseX=0,mouseY=0,glowX=0,glowY=0;
+let mx=0,my=0,gx=0,gy=0;
 
 document.addEventListener("mousemove",e=>{
-    mouseX=e.clientX;
-    mouseY=e.clientY;
-    dot.style.left=mouseX+"px";
-    dot.style.top=mouseY+"px";
+    mx=e.clientX; my=e.clientY;
+    dot.style.left=mx+"px";
+    dot.style.top=my+"px";
 });
 
-function animate(){
-    glowX+=(mouseX-glowX)*0.15;
-    glowY+=(mouseY-glowY)*0.15;
-    glow.style.left=glowX+"px";
-    glow.style.top=glowY+"px";
-    requestAnimationFrame(animate);
+function loop(){
+    gx+=(mx-gx)*0.15;
+    gy+=(my-gy)*0.15;
+    glow.style.left=gx+"px";
+    glow.style.top=gy+"px";
+    requestAnimationFrame(loop);
 }
-animate();
+loop();
 </script>
 
 </body>
