@@ -15,21 +15,23 @@ body {
     font-family: 'Inter', sans-serif;
     background: #0a0a0a;
     color: white;
+    overflow-x: hidden;
 }
 
-/* BACKGROUND GLOW */
+/* SMOOTH GLOW BG */
 body::before {
     content: "";
     position: fixed;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(56,189,248,0.3), transparent);
-    top: -100px;
-    left: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(56,189,248,0.25), transparent 70%);
+    top: -150px;
+    left: -150px;
+    filter: blur(80px);
     z-index: -1;
 }
 
-/* NAVBAR */
+/* NAV */
 .nav {
     position: sticky;
     top: 0;
@@ -44,6 +46,7 @@ body::before {
     color: #aaa;
     margin-left: 20px;
     text-decoration: none;
+    transition: 0.3s;
 }
 
 .nav a:hover {
@@ -53,11 +56,12 @@ body::before {
 /* HERO */
 .hero {
     text-align: center;
-    padding: 120px 20px;
+    padding: 140px 20px;
 }
 
 .hero h1 {
     font-size: 55px;
+    line-height: 1.2;
 }
 
 .hero p {
@@ -74,9 +78,11 @@ body::before {
     background: #38bdf8;
     color: black;
     text-decoration: none;
+    transition: 0.3s;
 }
 
 .btn:hover {
+    transform: translateY(-3px) scale(1.05);
     box-shadow: 0 0 20px #38bdf8;
 }
 
@@ -88,6 +94,11 @@ body::before {
 h2 {
     font-size: 30px;
     margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+h2:hover {
+    color: #38bdf8;
 }
 
 /* GRID */
@@ -97,22 +108,61 @@ h2 {
     gap: 25px;
 }
 
-/* CARD */
+/* CARD GLASS EFFECT */
 .card {
     background: rgba(255,255,255,0.05);
     padding: 25px;
     border-radius: 20px;
-    backdrop-filter: blur(10px);
-    transition: 0.4s;
+    backdrop-filter: blur(15px);
     border: 1px solid rgba(255,255,255,0.1);
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.1), transparent);
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.card:hover::before {
+    opacity: 1;
 }
 
 .card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px) scale(1.02);
     box-shadow: 0 0 25px rgba(56,189,248,0.4);
 }
 
 p {color: #aaa;}
+
+/* SCROLL ANIMATION */
+.fade-up {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 0.8s ease;
+}
+
+.fade-up.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* CURSOR GLOW */
+.cursor {
+    position: fixed;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(56,189,248,0.25), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
 
 /* FOOTER */
 .footer {
@@ -125,9 +175,11 @@ p {color: #aaa;}
 
 <body>
 
+<div class="cursor"></div>
+
 <!-- NAV -->
 <div class="nav">
-    <div><b>Avinash</b></div>
+    <div><b>Avinash Patwal</b></div>
     <div>
         <a href="#about">About</a>
         <a href="#work">Work</a>
@@ -136,7 +188,7 @@ p {color: #aaa;}
 </div>
 
 <!-- HERO -->
-<div class="hero">
+<div class="hero fade-up">
     <h1>SEO Specialist & <br> Social Media Manager</h1>
     <p>Helping brands grow with SEO & content strategy</p>
     <a href="#work" class="btn">View Work</a>
@@ -144,74 +196,91 @@ p {color: #aaa;}
 
 <!-- ABOUT -->
 <div class="section" id="about">
-    <h2>About Me</h2>
-    <p>
+    <h2 class="fade-up">About Me</h2>
+    <p class="fade-up">
         SEO Specialist & Social Media Manager with real company experience.
-        Skilled in keyword research, on-page SEO, and content strategy to improve rankings on Google.
-        Experienced in managing social media platforms and growing engagement through effective content strategies.
+        Skilled in keyword research, on-page SEO, and content strategy to improve rankings.
     </p>
 </div>
 
 <!-- EXPERIENCE -->
 <div class="section">
-    <h2>Experience</h2>
+    <h2 class="fade-up">Experience</h2>
 
-    <div class="card">
+    <div class="card fade-up">
         <h3>
-            <a href="https://dudehubdigital.com/" target="_blank" style="color: white; text-decoration: none;">
+            <a href="https://dudehubdigital.com/" target="_blank" style="color:white;text-decoration:none;">
                 Dude Hub
             </a>
         </h3>
         <p>Social Media Manager</p>
         <p>
-            Managed social media accounts, created content strategies, and improved audience engagement.
-            Worked on SEO strategies to support content growth and visibility.
+            Managed content strategy, improved engagement, and supported SEO growth.
         </p>
     </div>
 </div>
 
 <!-- WORK -->
 <div class="section" id="work">
-    <h2>Projects</h2>
+    <h2 class="fade-up">Projects</h2>
 
     <div class="grid">
-        <div class="card">
+        <div class="card fade-up">
             <h3>BGMI SEO Blog</h3>
-            <p>Gaming blog focused on SEO and content strategy.</p>
+            <p>SEO-focused gaming blog.</p>
             <a href="https://probgmitips.blogspot.com" target="_blank">View →</a>
         </div>
 
-        <div class="card">
-            <h3>Upcoming Projects</h3>
-            <p>More SEO and SMM projects coming soon.</p>
+        <div class="card fade-up">
+            <h3>Upcoming</h3>
+            <p>More projects coming soon.</p>
         </div>
     </div>
 </div>
 
 <!-- SKILLS -->
 <div class="section">
-    <h2>Skills</h2>
+    <h2 class="fade-up">Skills</h2>
 
     <div class="grid">
-        <div class="card">SEO</div>
-        <div class="card">Keyword Research</div>
-        <div class="card">Content Strategy</div>
-        <div class="card">Social Media Management</div>
+        <div class="card fade-up">SEO</div>
+        <div class="card fade-up">Keyword Research</div>
+        <div class="card fade-up">Content Strategy</div>
+        <div class="card fade-up">Social Media</div>
     </div>
 </div>
 
 <!-- CONTACT -->
 <div class="section" id="contact">
-    <h2>Contact</h2>
-    <p>Email: p8twal@gmail.com</p>
-    <p>Phone: 7818808357</p>
-    <p>Location: Ghaziabad, India</p>
+    <h2 class="fade-up">Contact</h2>
+    <p class="fade-up">Email: p8twal@gmail.com</p>
+    <p class="fade-up">Phone: 7818808357</p>
+    <p class="fade-up">Location: Ghaziabad, India</p>
 </div>
 
-<!-- FOOTER -->
 <div class="footer">
     © 2026 Avinash Patwal
 </div>
+
+<script>
+// SCROLL ANIMATION
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        }
+    });
+}, {threshold: 0.2});
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// CURSOR
+const cursor = document.querySelector(".cursor");
+document.addEventListener("mousemove", e => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+});
+</script>
 
 </body>
 </html>
