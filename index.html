@@ -8,174 +8,154 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-html {scroll-behavior: smooth;}
+html {scroll-behavior:smooth;}
 
-body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background: #0a0a0a;
-    color: white;
-    overflow-x: hidden;
+body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    background:#0a0a0a;
+    color:white;
+    overflow-x:hidden;
 }
 
-/* SMOOTH GLOW BG */
-body::before {
-    content: "";
-    position: fixed;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(56,189,248,0.25), transparent 70%);
-    top: -150px;
-    left: -150px;
-    filter: blur(80px);
-    z-index: -1;
+/* BACKGROUND GLOW */
+body::before{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:radial-gradient(circle, rgba(56,189,248,0.25), transparent 70%);
+    top:-150px;
+    left:-150px;
+    filter:blur(80px);
+    z-index:-1;
 }
 
 /* NAV */
-.nav {
-    position: sticky;
-    top: 0;
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 10%;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(15px);
+.nav{
+    position:sticky;
+    top:0;
+    display:flex;
+    justify-content:space-between;
+    padding:20px 10%;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(15px);
 }
 
-.nav a {
-    color: #aaa;
-    margin-left: 20px;
-    text-decoration: none;
-    transition: 0.3s;
+.nav a{
+    color:#aaa;
+    margin-left:20px;
+    text-decoration:none;
 }
 
-.nav a:hover {
-    color: #38bdf8;
-}
+.nav a:hover{color:#38bdf8;}
 
 /* HERO */
-.hero {
-    text-align: center;
-    padding: 140px 20px;
+.hero{
+    text-align:center;
+    padding:120px 20px;
 }
 
-.hero h1 {
-    font-size: 55px;
-    line-height: 1.2;
-}
+.hero h1{font-size:55px;}
 
-.hero p {
-    color: #aaa;
-    margin-top: 10px;
-}
+.hero p{color:#aaa;}
 
 /* BUTTON */
-.btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 25px;
-    border-radius: 30px;
-    background: #38bdf8;
-    color: black;
-    text-decoration: none;
-    transition: 0.3s;
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    border-radius:30px;
+    background:#38bdf8;
+    color:black;
+    text-decoration:none;
+    transition:0.3s;
 }
 
-.btn:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 0 20px #38bdf8;
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 20px #38bdf8;
 }
 
 /* SECTION */
-.section {
-    padding: 80px 10%;
-}
+.section{padding:80px 10%;}
 
-h2 {
-    font-size: 30px;
-    margin-bottom: 20px;
-    transition: 0.3s;
-}
-
-h2:hover {
-    color: #38bdf8;
-}
+h2{font-size:30px;margin-bottom:20px;}
 
 /* GRID */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
 }
 
-/* CARD GLASS EFFECT */
-.card {
-    background: rgba(255,255,255,0.05);
-    padding: 25px;
-    border-radius: 20px;
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255,255,255,0.1);
-    transition: 0.4s;
-    position: relative;
-    overflow: hidden;
+/* CARD */
+.card{
+    background:rgba(255,255,255,0.05);
+    padding:25px;
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+    transition:0.4s;
+    border:1px solid rgba(255,255,255,0.1);
+    cursor:pointer;
 }
 
-.card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.1), transparent);
-    opacity: 0;
-    transition: 0.4s;
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 25px rgba(56,189,248,0.4);
 }
 
-.card:hover::before {
-    opacity: 1;
+p{color:#aaa;}
+
+/* ANIMATION */
+.fade-up{
+    opacity:0;
+    transform:translateY(40px);
+    transition:0.8s ease;
+}
+.fade-up.show{
+    opacity:1;
+    transform:translateY(0);
 }
 
-.card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 0 25px rgba(56,189,248,0.4);
+/* CURSOR */
+.cursor-dot{
+    position:fixed;
+    width:8px;
+    height:8px;
+    background:#38bdf8;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:1000;
+    transform:translate(-50%,-50%);
 }
 
-p {color: #aaa;}
-
-/* SCROLL ANIMATION */
-.fade-up {
-    opacity: 0;
-    transform: translateY(60px);
-    transition: all 0.8s ease;
-}
-
-.fade-up.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* CURSOR GLOW */
-.cursor {
-    position: fixed;
-    width: 120px;
-    height: 120px;
-    background: radial-gradient(circle, rgba(56,189,248,0.25), transparent);
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 0;
+.cursor-glow{
+    position:fixed;
+    width:140px;
+    height:140px;
+    background:radial-gradient(circle, rgba(56,189,248,0.25), transparent 70%);
+    border-radius:50%;
+    pointer-events:none;
+    z-index:999;
+    transform:translate(-50%,-50%);
+    transition:0.2s;
 }
 
 /* FOOTER */
-.footer {
-    text-align: center;
-    padding: 40px;
-    color: #777;
+.footer{
+    text-align:center;
+    padding:40px;
+    color:#777;
 }
 </style>
 </head>
 
 <body>
 
-<div class="cursor"></div>
+<!-- CURSOR -->
+<div class="cursor-dot"></div>
+<div class="cursor-glow"></div>
 
 <!-- NAV -->
 <div class="nav">
@@ -199,7 +179,7 @@ p {color: #aaa;}
     <h2 class="fade-up">About Me</h2>
     <p class="fade-up">
         SEO Specialist & Social Media Manager with real company experience.
-        Skilled in keyword research, on-page SEO, and content strategy to improve rankings.
+        Skilled in keyword research, on-page SEO, and content strategy.
     </p>
 </div>
 
@@ -207,41 +187,45 @@ p {color: #aaa;}
 <div class="section">
     <h2 class="fade-up">Experience</h2>
 
-    <div class="card fade-up">
-        <h3>
-            <a href="https://dudehubdigital.com/" target="_blank" style="color:white;text-decoration:none;">
-                Dude Hub
-            </a>
-        </h3>
+    <div class="card fade-up" onclick="window.open('https://dudehubdigital.com/','_blank')">
+        <h3>Dude Hub</h3>
         <p>Social Media Manager</p>
-        <p>
-            Managed content strategy, improved engagement, and supported SEO growth.
-        </p>
+        <p>Managed content strategy, engagement & SEO growth.</p>
     </div>
 </div>
 
-<!-- WORK -->
+<!-- PROJECTS -->
 <div class="section" id="work">
     <h2 class="fade-up">Projects</h2>
 
     <div class="grid">
-        <div class="card fade-up">
-            <h3>BGMI SEO Blog</h3>
-            <p>SEO-focused gaming blog.</p>
-            <a href="https://probgmitips.blogspot.com" target="_blank">View →</a>
+        <div class="card fade-up" onclick="window.open('https://probgmitips.blogspot.com/2026/04/the-rise-of-esports-in-india-ewc.html','_blank')">
+            <h3>The Rise of Esports in India</h3>
+            <p>Blog on esports growth & EWC impact.</p>
         </div>
 
         <div class="card fade-up">
-            <h3>Upcoming</h3>
-            <p>More projects coming soon.</p>
+            <h3>Upcoming Projects</h3>
+            <p>More SEO & SMM work coming soon.</p>
         </div>
+    </div>
+</div>
+
+<!-- SEO CASE STUDY -->
+<div class="section">
+    <h2 class="fade-up">SEO Case Study</h2>
+
+    <div class="card fade-up">
+        <h3> The Rise of Esports Blog SEO Growth</h3>
+        <p><b>Objective:</b> Improve visibility using SEO</p>
+        <p><b>Strategy:</b> Keyword research, on-page SEO, internal linking</p>
+        <p><b>Result:</b> Better structure & search visibility</p>
     </div>
 </div>
 
 <!-- SKILLS -->
 <div class="section">
     <h2 class="fade-up">Skills</h2>
-
     <div class="grid">
         <div class="card fade-up">SEO</div>
         <div class="card fade-up">Keyword Research</div>
@@ -255,31 +239,46 @@ p {color: #aaa;}
     <h2 class="fade-up">Contact</h2>
     <p class="fade-up">Email: p8twal@gmail.com</p>
     <p class="fade-up">Phone: 7818808357</p>
-    <p class="fade-up">Location: Ghaziabad, India</p>
+    <p class="fade-up">Location: Ghaziabad</p>
 </div>
 
 <div class="footer">
-    © 2026 Avinash Patwal
+© 2026 Avinash Patwal
 </div>
 
 <script>
 // SCROLL ANIMATION
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
+const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
         if(entry.isIntersecting){
             entry.target.classList.add('show');
         }
     });
-}, {threshold: 0.2});
+},{threshold:0.2});
 
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
 
 // CURSOR
-const cursor = document.querySelector(".cursor");
-document.addEventListener("mousemove", e => {
-    cursor.style.left = e.clientX + "px";
-    cursor.style.top = e.clientY + "px";
+const dot=document.querySelector(".cursor-dot");
+const glow=document.querySelector(".cursor-glow");
+
+let mouseX=0,mouseY=0,glowX=0,glowY=0;
+
+document.addEventListener("mousemove",e=>{
+    mouseX=e.clientX;
+    mouseY=e.clientY;
+    dot.style.left=mouseX+"px";
+    dot.style.top=mouseY+"px";
 });
+
+function animate(){
+    glowX+=(mouseX-glowX)*0.15;
+    glowY+=(mouseY-glowY)*0.15;
+    glow.style.left=glowX+"px";
+    glow.style.top=glowY+"px";
+    requestAnimationFrame(animate);
+}
+animate();
 </script>
 
 </body>
